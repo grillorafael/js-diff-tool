@@ -1,0 +1,11 @@
+{
+  "name": "js-diff-tool",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "diff": "~1.0.8",
+    "js-beautify": "~1.4.2",
+    "zombie": "~2.0.0",
+    "colors": "~0.6.2"
+  }
+}
