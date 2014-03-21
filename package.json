@@ -1,5 +1,17 @@
 {
   "name": "jsdifftool",
+  "description": "A Javascript to to see the DOM difference between a page with javascript and a page without javascript",
+  "contributors": [
+    {
+      "name": "Rafael Grillo",
+      "email": "grillorafael@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grillorafael/js-diff-tool.git"
+  },
+  "license": "MIT",
   "version": "0.0.1",
   "private": false,
   "dependencies": {
