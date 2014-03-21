@@ -16,7 +16,7 @@
   "preferGlobal": true,
   "private": false,
   "bin": {
-    "jsdifftoll" : "jsdiff.js"
+    "jsdifftool" : "jsdiff.js"
   },
   "dependencies": {
     "diff": "~1.0.8",
