@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 var colors = require('colors');
 var jsdiff = require('diff');
 var http = require('http');
