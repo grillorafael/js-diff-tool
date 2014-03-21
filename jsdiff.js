@@ -2,13 +2,10 @@
 
 var colors = require('colors');
 var jsdiff = require('diff');
-var http = require('http');
-
 var beautify_html = require('js-beautify').html;
-var beautifyOptions = { indent_size: 2 };
-
 var Browser = require("zombie");
-var browser = new Browser();
+
+var beautifyOptions = { indent_size: 2 };
 
 var withoutjs = "";
 var hasWithoutJs = false;
@@ -50,30 +47,22 @@ function performDiff() {
 }
 
 function setWithoutJs() {
-  http.get(url, function(response){
-    var responseBody = "";
-    response.on('data', function(data){
-      responseBody += data;
-    });
-    response.on('end', function () {
-      withoutjs = beautify_html(responseBody, beautifyOptions);
-      hasWithoutJs = true;
-      if(showPartials) {
-        console.log("-----WITHOUTJS PARTIAL-----".red.bold);
-        console.log(beautify_html(withoutjs, beautifyOptions));
-        console.log("-----END WITHOUTJS PARTIAL-----".red.bold);
-      }
-      if(hasWithJs) {
-        performDiff();
-      }
-    });
-  }).on('error', function(e) {
-    console.error("Error: ", e);
+  Browser.visit(url, {runScripts: false}, function(e, browser, status){
+    withoutjs = beautify_html(browser.html(), beautifyOptions);
+    hasWithoutJs = true;
+    if(showPartials) {
+      console.log("-----WITHOUTJS PARTIAL-----".red.bold);
+      console.log(beautify_html(withoutjs, beautifyOptions));
+      console.log("-----END WITHOUTJS PARTIAL-----".red.bold);
+    }
+    if(hasWithJs) {
+      performDiff();
+    }
   });
 }
 
 function setWithJs() {
-  browser.visit(url, function(){
+  Browser.visit(url, {runScripts: true},function(e, browser, status){
     withjs = beautify_html(browser.html(), beautifyOptions);
     hasWithJs = true;
     if(showPartials) {
