@@ -1,7 +1,7 @@
 {
-  "name": "js-diff-tool",
+  "name": "jsdifftool",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "dependencies": {
     "diff": "~1.0.8",
     "js-beautify": "~1.4.2",
