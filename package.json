@@ -10,7 +10,7 @@
     "url": "https://github.com/grillorafael/js-diff-tool.git"
   },
   "license": "MIT",
-  "version": "0.0.5",
+  "version": "0.0.51",
   "preferGlobal": true,
   "private": false,
   "main": "jsdiff",

@@ -6,7 +6,7 @@ A Javascript to to see the DOM difference between a page with javascript and a p
 
 Instalation
 ==========
-```npm install jsdifftoll```
+```npm install -g jsdifftoll```
 
 
 Running
