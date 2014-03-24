@@ -14,6 +14,7 @@ var withjs = "";
 var hasWithJs = false;
 
 var showPartials = process.argv.join('').indexOf('--show-partials') != -1;
+var onlyAdd = process.argv.join('').indexOf('--only-add') != -1;
 
 console.log("Welcome to Javascript Diff Tool".blue.bold);
 console.log("With this tool you can see the diff between a website with and without javascript".blue);
@@ -41,8 +42,12 @@ function performDiff() {
   var diff = jsdiff.diffLines(withoutjs, withjs);
   diff.forEach(function(part){
     var color = part.added ? 'green' : part.removed ? 'red' : 'grey';
-    console.log(part.value[color]);
-    // process.stderr.write();
+    if(onlyAdd && part.added) {
+      console.log(part.value[color]);
+    }
+    else if(!onlyAdd){
+      console.log(part.value[color]);
+    }
   });
 }
 
